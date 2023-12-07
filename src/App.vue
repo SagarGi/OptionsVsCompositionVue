@@ -1,5 +1,5 @@
 <script setup>
-import CompositionAPIDemo from "./components/CompositionAPIDemo.vue";
+// import CompositionAPIDemo from "./components/CompositionAPIDemo.vue";
 import OptionAPIDemo from "./components/OptionAPIDemo.vue";
 </script>
 

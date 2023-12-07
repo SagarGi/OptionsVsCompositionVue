@@ -1,9 +1,10 @@
 
 <template>
   <h1>{{ msg }}</h1>
-  <p>Name: {{this.name}}</p>
-  <p>Age: {{this.age}}</p>
-  <p>Voting Status : {{this.votingStatus}}</p>
+  <p>Name: {{name}}</p>
+  <p>Age: {{age}}</p>
+  <p>Voting Status : {{votingStatus}}</p>
+  <p>Born Year : {{bornYear}}</p>
   <button @click="increaseAge">Age++</button>
   <button @click="decreaseAge">Age--</button>
 </template>
@@ -15,8 +16,8 @@
     data() {
       return {
         name: 'Sagar Gurung',
-        age: 17,
-        year: 1997,
+        age: 26,
+        bornYear: 1997,
         votingStatus: 'Not Eligible!'
       }
     },
@@ -39,11 +40,11 @@
       }
     },
     watch: {
-      age(newAge, oldAge) {
-        if(newAge >= 18) {
-          this.votingStatus = 'Eligible'
+      age(oldAge, newAge) {
+        if(oldAge > newAge) {
+          this.bornYear--
         } else {
-          this.votingStatus = 'Not Eligible'
+          this.bornYear++
         }
       }
     }
