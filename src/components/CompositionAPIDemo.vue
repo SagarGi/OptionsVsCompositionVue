@@ -1,6 +1,6 @@
 
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>CompositionAPI Demo</h1>
   <p>Name: {{name}}</p>
   <p>Age: {{age}}</p>
   <p>Voting Status : {{getVotingStatus}}</p>
@@ -11,10 +11,6 @@
 <script>
 import { reactive, toRefs, computed , watch} from "vue";
 export default {
-  // props
-  props: {
-    msg: String
-  },
   setup() {
     // data
     const data = reactive({
