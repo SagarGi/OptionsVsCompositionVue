@@ -3,7 +3,7 @@
   <h1>{{ msg }}</h1>
   <p>Name: {{name}}</p>
   <p>Age: {{age}}</p>
-  <p>Voting Status : {{votingStatus}}</p>
+  <p>Voting Status : {{getVotingStatus}}</p>
   <p>Born Year : {{bornYear}}</p>
   <button @click="increaseAge">Age++</button>
   <button @click="decreaseAge">Age--</button>
@@ -18,7 +18,7 @@
         name: 'Sagar Gurung',
         age: 26,
         bornYear: 1997,
-        votingStatus: 'Not Eligible!'
+        votingStatus: 'Eligible!'
       }
     },
     methods: {
@@ -31,12 +31,7 @@
     },
     computed: {
       getVotingStatus() {
-        if(this.age >= 18) {
-          this.votingStatus = 'Eligible'
-        } else {
-          this.votingStatus = 'Not Eligible'
-        }
-        return this.votingStatus
+        return (this.age >= 18) ? 'Eligible' : 'Not Eligible'
       }
     },
     watch: {

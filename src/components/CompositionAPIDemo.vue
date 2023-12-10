@@ -11,11 +11,11 @@
 <script>
 import { reactive, toRefs, computed , watch} from "vue";
 export default {
+  // props
   props: {
     msg: String
   },
   setup() {
-
     // data
     const data = reactive({
       name: 'Sagar Gurung',
@@ -37,14 +37,10 @@ export default {
 
     //computed
     const getVotingStatus = computed(() => {
-      if(data.age >= 18) {
-        data.votingStatus = 'Eligible'
-      } else {
-        data.votingStatus = 'Not Eligible'
-      }
-      return data.votingStatus
+      return (data.age >= 18) ? 'Eligible' : 'Not Eligible'
     })
 
+    //watcher
     watch(mainData.age, (oldAge, newAge) => {
       if(oldAge > newAge) {
         data.bornYear--
@@ -65,19 +61,4 @@ export default {
 </script>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
-}
 </style>
-
-
-
-//reactive ref example :
-
-// userInformation.value ={
-//   name: 'lambu Gurung',
-//   age: 17
-// }
-// userInformation.value.name = "lambu gurung"
-// userInformation.value.age++
-// }, 3000)
